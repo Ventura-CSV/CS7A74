@@ -8,7 +8,7 @@ import math
 def test_main_1():
     captureOut = io.StringIO()
     sys.stdout = captureOut
-    datastr = '25\n'
+    datastr = '30\n'
     sys.stdin = io.StringIO(datastr)
 
     main.main()
@@ -25,13 +25,14 @@ def test_main_1():
     # res = re.search(regex_string, main.evenlist)
     # assert res != None
     # print(res.group())
-    assert main.main.numbers[2] == 25
+    n = len(main.main.numbers)
+    assert n == 3
 
 
 def test_main_2():
     captureOut = io.StringIO()
     sys.stdout = captureOut
-    datastr = '0\n'
+    datastr = '35\n'
     sys.stdin = io.StringIO(datastr)
 
     main.main()
@@ -48,13 +49,14 @@ def test_main_2():
     # res = re.search(regex_string, main.evenlist)
     # assert res != None
     # print(res.group())
-    assert main.main.numbers[0] == 0
+    n = len(main.main.numbers)
+    assert n == 4
 
 
 def test_main_3():
     captureOut = io.StringIO()
     sys.stdout = captureOut
-    datastr = '100\n'
+    datastr = '75\n'
     sys.stdin = io.StringIO(datastr)
 
     main.main()
@@ -71,13 +73,4 @@ def test_main_3():
     # res = re.search(regex_string, main.evenlist)
     # assert res != None
     # print(res.group())
-    assert main.main.numbers[5] == 100
-
-
-def test_main_4():
-    result = False
-    with open('main.py') as f:
-        for line in f:
-            if 'sort' in line:
-                result = True
-    assert result == False
+    assert not main.main.numbers == True

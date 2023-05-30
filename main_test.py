@@ -8,69 +8,32 @@ import math
 def test_main_1():
     captureOut = io.StringIO()
     sys.stdout = captureOut
-    datastr = '30\n'
-    sys.stdin = io.StringIO(datastr)
+    # datastr = '30\n'
+    # sys.stdin = io.StringIO(datastr)
 
-    main.main()
     sys.stdout = sys.__stdout__
     print('Captured ', captureOut.getvalue())
     lines = captureOut.getvalue().split('\n')
     print(lines)
 
-    # regex_string = r'[\w,\W]*1'
-    # regex_string += r'[\w,\W]*3'
-    # regex_string += r'[\w,\W]*5'
-    # regex_string += r'[\w,\W]*'
-    # print(regex_string)
-    # res = re.search(regex_string, main.evenlist)
-    # assert res != None
-    # print(res.group())
-    n = len(main.main.numbers)
-    assert n == 3
+    numbers = [5, 20, 30, 30, 35]
+    print(f'Original list value: {numbers}')
+    main.deleteOne(numbers, 30)
+    print(f'After deleting 30 {numbers}')
+    assert numbers == [5, 20, 35]
 
 
 def test_main_2():
-    captureOut = io.StringIO()
-    sys.stdout = captureOut
-    datastr = '35\n'
-    sys.stdin = io.StringIO(datastr)
-
-    main.main()
-    sys.stdout = sys.__stdout__
-    print('Captured ', captureOut.getvalue())
-    lines = captureOut.getvalue().split('\n')
-    print(lines)
-
-    # regex_string = r'[\w,\W]*1'
-    # regex_string += r'[\w,\W]*3'
-    # regex_string += r'[\w,\W]*5'
-    # regex_string += r'[\w,\W]*'
-    # print(regex_string)
-    # res = re.search(regex_string, main.evenlist)
-    # assert res != None
-    # print(res.group())
-    n = len(main.main.numbers)
-    assert n == 4
+    numbers = [1, 1, 1, 1, 1]
+    print(f'Original list value: {numbers}')
+    main.deleteOne(numbers, 1)
+    print(f'After deleting 1 {numbers}')
+    assert numbers == []
 
 
 def test_main_3():
-    captureOut = io.StringIO()
-    sys.stdout = captureOut
-    datastr = '75\n'
-    sys.stdin = io.StringIO(datastr)
-
-    main.main()
-    sys.stdout = sys.__stdout__
-    print('Captured ', captureOut.getvalue())
-    lines = captureOut.getvalue().split('\n')
-    print(lines)
-
-    # regex_string = r'[\w,\W]*1'
-    # regex_string += r'[\w,\W]*3'
-    # regex_string += r'[\w,\W]*5'
-    # regex_string += r'[\w,\W]*'
-    # print(regex_string)
-    # res = re.search(regex_string, main.evenlist)
-    # assert res != None
-    # print(res.group())
-    assert not main.main.numbers == True
+    numbers = [1, 2, 3, 4, 5]
+    print(f'Original list value: {numbers}')
+    main.deleteOne(numbers, 6)
+    print(f'After deleting 6 {numbers}')
+    assert numbers == [1, 2, 3, 4, 5]
